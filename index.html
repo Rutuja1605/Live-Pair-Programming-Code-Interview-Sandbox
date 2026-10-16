@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PairLab — Live Coding Interview Sandbox</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="PairLab home"><span class="brand-mark">⌘</span><span>Pair<span class="brand-accent">Lab</span></span></a>
+    <div class="session-meta"><span class="live-dot"></span><span>Interview room</span><span class="meta-divider">/</span><span id="sessionId">ROOM-4821</span></div>
+    <div class="top-actions">
+      <span class="avatar">RS</span>
+      <span class="user-name">Candidate</span>
+      <button class="btn btn-outline" id="shareBtn">↗ Share room</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="side-label">WORKSPACE</div>
+      <button class="side-item active" data-view="editor"><span>⌘</span> Code editor</button>
+      <button class="side-item" data-view="problem"><span>▤</span> Problem brief</button>
+      <button class="side-item" data-view="notes"><span>✎</span> Interview notes</button>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✦</div><strong>Ready to collaborate?</strong><p>Share your room code with your interviewer to work through the challenge together.</p><button id="copyRoomBtn">Copy room code <span>↗</span></button></div>
+        <div class="connection"><span class="live-dot"></span> Local session active</div>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <div class="workspace-head">
+        <div><div class="eyebrow">CODING INTERVIEW <span class="pill">PRACTICE</span></div><h1>Live Pair-Programming <span>Sandbox</span></h1><p class="subtitle">Think out loud. Write code. Solve it together.</p></div>
+        <div class="timer-card"><div class="timer-label">TIME REMAINING</div><div class="timer" id="timer">30:00</div><div class="timer-actions"><button id="startTimer" class="btn btn-primary">▶ Start</button><button id="resetTimer" class="icon-btn" title="Reset timer">↻</button></div></div>
+      </div>
+
+      <div class="challenge-strip">
+        <div class="challenge-icon">⌁</div>
+        <div class="challenge-info"><strong id="challengeTitle">Two Sum</strong><span id="challengeMeta">Arrays · Easy · 15 min suggested</span></div>
+        <select id="challengeSelect" aria-label="Choose coding challenge">
+          <option value="twoSum">Two Sum</option><option value="palindrome">Palindrome Check</option><option value="fizzBuzz">FizzBuzz</option>
+        </select>
+      </div>
+
+      <div class="editor-layout">
+        <section class="editor-panel panel">
+          <div class="panel-toolbar">
+            <div class="file-tab"><span class="file-dot">JS</span><span>solution.js</span><span class="tab-close">×</span></div>
+            <div class="editor-tools"><label for="fontSize">Aa</label><select id="fontSize" aria-label="Editor font size"><option value="13">13 px</option><option value="14" selected>14 px</option><option value="16">16 px</option><option value="18">18 px</option></select><button id="resetCode" class="tool-btn" title="Reset code">↻</button></div>
+          </div>
+          <div class="editor-wrap">
+            <div class="line-numbers" id="lineNumbers">1</div>
+            <textarea id="codeEditor" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="JavaScript code editor"></textarea>
+          </div>
+          <div class="editor-footer"><span><span class="status-dot"></span> JavaScript</span><span id="lineCount">1 line</span><span>UTF-8</span><span class="push-right">⌨ Ctrl + Enter to run</span></div>
+        </section>
+
+        <section class="output-panel panel">
+          <div class="output-head"><div class="output-tabs"><button class="output-tab active" data-tab="output">▶ Output</button><button class="output-tab" data-tab="tests">✓ Test cases <span id="testBadge">3</span></button></div><button class="clear-btn" id="clearOutput">Clear</button></div>
+          <div id="outputContent" class="output-content"><div class="empty-output"><div class="terminal-icon">›_</div><strong>Your output will appear here</strong><p>Run your code to see console output and errors.</p><button id="runEmpty" class="btn btn-primary">▶ Run code</button></div></div>
+          <div class="run-footer"><span id="runStatus"><span class="status-dot muted"></span> Waiting to run</span><span id="runDuration">—</span></div>
+        </section>
+      </div>
+
+      <section class="bottom-grid">
+        <div class="panel problem-panel" id="problemPanel"><div class="section-heading"><span class="heading-icon">▤</span><div><strong>Problem brief</strong><small>Understand the task before you code</small></div><button class="collapse-btn" id="toggleProblem">−</button></div><div id="problemBody"><p id="problemDescription">Given an array of integers <code>nums</code> and an integer <code>target</code>, return the indices of the two numbers that add up to target.</p><div class="example"><span>Example</span><code id="exampleCode">twoSum([2, 7, 11, 15], 9) → [0, 1]</code></div><div class="constraints"><strong>Constraints</strong><ul id="constraints"><li>Exactly one valid answer exists.</li><li>You may not use the same element twice.</li><li>Return the answer in any order.</li></ul></div></div></div>
+        <div class="panel notes-panel" id="notesPanel"><div class="section-heading"><span class="heading-icon">✎</span><div><strong>Interview notes</strong><small>Capture your thinking as you go</small></div><span class="autosave">● Auto-saved locally</span></div><textarea id="notes" placeholder="Approach, edge cases, time complexity…"></textarea><div class="notes-foot"><span>Private to this browser session</span><span id="noteCount">0 characters</span></div></div>
+      </section>
+      <footer class="page-footer"><span>PairLab <span class="footer-dot">·</span> Practice environment</span><span>Built for focused problem solving <span class="footer-spark">✦</span></span></footer>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
